@@ -58,21 +58,29 @@ class TrafficLights:
         if self.timer_a1 <= 0:
             self.timer_a1 = self.red_light_duration
             if self.current_state_a1 == self.red:
+                self.current_state_a1 = self.yellow
+                self.timer_a1=self.yellow_light_duration
+            elif self.current_state_a1 == self.yellow:
                 self.current_state_a1 = self.green
+                # self.timer_a1 = 5  # Set the yellow timer to 5 seconds
+                self.timer_a1=self.green_light_duration
             elif self.current_state_a1 == self.green:
                 self.current_state_a1 = self.yellow
-            elif self.current_state_a1 == self.yellow:
-                self.current_state_a1 = self.red
+                self.timer_a1=self.yellow_light_duration
 
         self.timer_a2 -= elapsed_seconds
         if self.timer_a2 <= 0:
             self.timer_a2 = self.red_light_duration
             if self.current_state_a2 == self.red:
                 self.current_state_a2 = self.green
+                self.timer_a2=self.green_light_duration
             elif self.current_state_a2 == self.green:
                 self.current_state_a2 = self.yellow
+                # self.timer_a2 = 5  # Set the yellow timer to 5 seconds
+                self.timer_a2=self.yellow_light_duration
             elif self.current_state_a2 == self.yellow:
                 self.current_state_a2 = self.red
+                self.timer_a2=self.red_light_duration
 
         # Update traffic light states in part B based on timers
         self.timer_b1 -= elapsed_seconds
@@ -80,22 +88,23 @@ class TrafficLights:
             self.timer_b1 = self.red_light_duration
             if self.current_state_a1 == self.red:
                 self.current_state_b1 = self.green
-            elif self.current_state_a1 == self.green:
-                self.current_state_b1 = self.red
-            elif self.current_state_a1 == self.yellow:
+            elif self.current_state_b1 == self.green:
                 self.current_state_b1 = self.yellow
+                self.timer_b1 = 5  # Set the yellow timer to 5 seconds
+            elif self.current_state_b1 == self.yellow:
+                self.current_state_b1 = self.red
 
         self.timer_b2 -= elapsed_seconds
         if self.timer_b2 <= 0:
             self.timer_b2 = self.red_light_duration
-            if self.current_state_a2 == self.red:
+            if self.current_state_b2 == self.red:
                 self.current_state_b2 = self.green
-            elif self.current_state_a2 == self.green:
-                self.current_state_b2 = self.red
-            elif self.current_state_a2 == self.yellow:
+            elif self.current_state_b2 == self.green:
                 self.current_state_b2 = self.yellow
-
-
+                self.timer_b2 = 5  # Set the yellow timer to 5 seconds
+            elif self.current_state_b2 == self.yellow:
+                self.current_state_b2 = self.red
+            
 
     def render(self):
         self.screen.fill(self.white)
