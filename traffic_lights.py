@@ -28,7 +28,7 @@ class TrafficLights:
         self.traffic_light_a2 = pygame.Rect(self.traffic_light_a1.right + self.rectangle_gap, 50, 250, 100)
         self.current_state_a1 = self.red
         self.current_state_a2 = self.red
-        self.timer_a1 = 15  # Initial red light duration
+        self.timer_a1 = 10 # Initial red light duration
         # self.timer_a2 = 50  # Initial red light duration
 
         # Set up traffic lights in part B

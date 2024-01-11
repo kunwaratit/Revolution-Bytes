@@ -39,7 +39,7 @@ class BoxValues:
     def render_and_blit_text(self, screen, lane_name, vehicle_count, box):
         lane_text = self.font.render(lane_name, True, (0, 0, 0))
         count_text = self.font.render(f"Vehicles: {vehicle_count}", True, (0, 0, 0))
-        traffic_flow_text = self.font.render(f"Traffic Flow: {self.calculate_traffic_flow(vehicle_count)}", True, (0, 0, 0))
+        traffic_flow_text = self.font.render(f"Traffic Flow: {self.calculate_traffic_flow(vehicle_count)} vechiles/hour", True, (0, 0, 0))
     
     # Blit lane name
         screen.blit(lane_text, (box.left + 5, box.top + 5))
@@ -52,7 +52,7 @@ class BoxValues:
     def calculate_traffic_flow(self, vehicle_count):
         # Assuming the total time is stored in self.total_elapsed_time
         # if self.total_elapsed_time > 0:
-            traffic_flow = (vehicle_count / 60) * 3600
+            traffic_flow = (vehicle_count / 60) * 3600 
             return round(traffic_flow, 2)
         # else:
             # return 0
