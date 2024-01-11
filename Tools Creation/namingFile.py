@@ -1,6 +1,6 @@
 import os
 
-directory_path = r'Images'
+directory_path = r'U:\Atit\Coding\AI\CustomData\Revolution-Bytes\Images'
 
 if not os.path.exists(directory_path):
     print(f"Directory '{directory_path}' does not exist.")
