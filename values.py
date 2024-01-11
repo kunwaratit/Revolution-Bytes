@@ -4,6 +4,7 @@ import pygame
 box_width = 300
 box_height = 150
 box_color = (200, 200, 200)
+# box_color = (200, 200, 200)
 box_gap = 10
 
 class BoxValues:
