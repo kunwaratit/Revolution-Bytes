@@ -28,19 +28,19 @@ class TrafficLights:
         self.traffic_light_a2 = pygame.Rect(self.traffic_light_a1.right + self.rectangle_gap, 50, 250, 100)
         self.current_state_a1 = self.red
         self.current_state_a2 = self.red
-        self.timer_a1 = 10  # Initial red light duration
-        self.timer_a2 = 10  # Initial red light duration
+        self.timer_a1 = 15  # Initial red light duration
+        # self.timer_a2 = 50  # Initial red light duration
 
         # Set up traffic lights in part B
         self.traffic_light_b1 = pygame.Rect(50, self.line_y + 50, 250, 100)
         self.traffic_light_b2 = pygame.Rect(self.traffic_light_b1.right + self.rectangle_gap, self.line_y + 50, 250, 100)
         self.current_state_b1 = self.green
         self.current_state_b2 = self.green
-        self.timer_b1 = 10  # Initial red light duration
-        self.timer_b2 = 10  # Initial red light duration
+        # self.timer_b1 = 90  # Initial red light duration
+        self.timer_b2 = self.timer_a2=self.timer_b1=self.timer_a1  # Initial red light duration
 
         # Traffic light timers
-        self.red_light_duration = 10
+        self.red_light_duration = self.timer_a1
         self.yellow_light_duration = 5  # Set yellow light duration to 5 seconds
         self.green_light_duration = 10
 
