@@ -1,0 +1,10 @@
+train: /content/drive/MyDrive/RevolutionBytes/data/train/images
+val: /content/drive/MyDrive/RevolutionBytes/data/valid/images
+
+nc: 5
+names:
+  - car
+  - motorbike
+  - truck
+  - bus
+  - Emergency
