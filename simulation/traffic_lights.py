@@ -4,9 +4,9 @@ import pygame
 class TrafficLight:
     def __init__(self, rect):
         self.rect = rect
-        self.timer_red = 5
-        self.timer_yellow = 10
-        self.timer_green = 15
+        self.timer_red = 3
+        self.timer_yellow = 5
+        self.timer_green = 10
         self.timer_cycle = self.timer_red + self.timer_yellow + self.timer_green
         self.current_state = "red"
 
