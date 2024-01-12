@@ -9,12 +9,12 @@ box_gap = 10
 class BoxValues:
     def __init__(self, traffic_light_a1, traffic_light_a2, traffic_light_b1, traffic_light_b2):
         box_gap = 20
-        box_width = 50
-        box_height = 30
+        box_width = 290
+        box_height = 90
 
         # Boxes for traffic lights in part A
-        self.box_a1 = pygame.Rect(traffic_light_a1.rect.right + box_gap, traffic_light_a1.rect.top, box_width, box_height)
-        self.box_a2 = pygame.Rect(traffic_light_a2.rect.right + box_gap, traffic_light_a2.rect.top, box_width, box_height)
+        self.box_a1 = pygame.Rect(traffic_light_a1.rect.left, traffic_light_a1.rect.bottom + box_gap, box_width, box_height)
+        self.box_a2 = pygame.Rect(traffic_light_a2.rect.left, traffic_light_a2.rect.bottom + box_gap, box_width, box_height)
 
         # Boxes for traffic lights in part B
         self.box_b1 = pygame.Rect(traffic_light_b1.rect.left, traffic_light_b1.rect.bottom + box_gap, box_width, box_height)

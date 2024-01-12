@@ -3,20 +3,26 @@ import pygame
 from values import BoxValues
 
 class TrafficLight:
-    def __init__(self, rect, is_rectangle_a=True):
+    def __init__(self, rect, is_rectangle_a=True, initial_state="red"):
         self.rect = rect
         if is_rectangle_a:
-            self.timer_red = 1
-            self.timer_yellow = 1
-            self.timer_green = 1
+            self.timer_red = 5
+            self.timer_yellow = 2
+            self.timer_green = 5
         else:
-            # Adjust the timings for rectangle B
-            self.timer_red =5
-            self.timer_yellow = 5
+            self.timer_red = 5
+            self.timer_yellow = 2
             self.timer_green = 5
 
         self.timer_cycle = self.timer_red + self.timer_yellow + self.timer_green
-        self.current_state = "red"
+
+        # Set the initial state and adjust the timer_cycle accordingly
+        if initial_state == "red":
+            self.timer_cycle -= self.timer_yellow + self.timer_green
+        elif initial_state == "yellow":
+            self.timer_cycle -= self.timer_green
+
+        self.current_state = initial_state
 
 class TrafficLights:
     def __init__(self, screen, width, height):
@@ -40,12 +46,12 @@ class TrafficLights:
 
         # Set up traffic lights in part A
         self.rectangle_gap = 300
-        self.traffic_light_a1 = TrafficLight(pygame.Rect(50, 50, 250, 100), is_rectangle_a=True)
-        self.traffic_light_a2 = TrafficLight(pygame.Rect(self.traffic_light_a1.rect.right + self.rectangle_gap, 50, 250, 100), is_rectangle_a=True)
+        self.traffic_light_a1 = TrafficLight(pygame.Rect(50, 50, 250, 100), is_rectangle_a=True, initial_state="green")
+        self.traffic_light_a2 = TrafficLight(pygame.Rect(self.traffic_light_a1.rect.right + self.rectangle_gap, 50, 250, 100), is_rectangle_a=True, initial_state="green")
 
         # Set up traffic lights in part B
-        self.traffic_light_b1 = TrafficLight(pygame.Rect(50, self.line_y + 50, 250, 100), is_rectangle_a=False)
-        self.traffic_light_b2 = TrafficLight(pygame.Rect(self.traffic_light_b1.rect.right + self.rectangle_gap, self.line_y + 50, 250, 100), is_rectangle_a=False)
+        self.traffic_light_b1 = TrafficLight(pygame.Rect(50, self.line_y + 50, 250, 100), is_rectangle_a=False, initial_state="red")
+        self.traffic_light_b2 = TrafficLight(pygame.Rect(self.traffic_light_b1.rect.right + self.rectangle_gap, self.line_y + 50, 250, 100), is_rectangle_a=False, initial_state="red")
 
         # Set up additional boxes next to traffic lights using BoxValues
         self.box_values = BoxValues(self.traffic_light_a1, self.traffic_light_a2, self.traffic_light_b1, self.traffic_light_b2)
@@ -68,17 +74,21 @@ class TrafficLights:
         # Update the timer for the entire cycle
         traffic_light.timer_cycle -= elapsed_seconds
 
-        # Check which state should be active based on the timers
-        if 0 <= traffic_light.timer_cycle < traffic_light.timer_green:
-            traffic_light.current_state = "green"
-        elif traffic_light.timer_green <= traffic_light.timer_cycle < traffic_light.timer_green + traffic_light.timer_yellow:
+        # Calculate the time remaining for the current state
+        remaining_time = traffic_light.timer_cycle % (traffic_light.timer_red + traffic_light.timer_yellow + traffic_light.timer_green)
+
+        # Check which state should be active based on the remaining time
+        if 0 <= remaining_time < traffic_light.timer_red:
+            traffic_light.current_state = "red"
+        elif traffic_light.timer_red <= remaining_time < traffic_light.timer_red + traffic_light.timer_yellow:
             traffic_light.current_state = "yellow"
         else:
-            traffic_light.current_state = "red"
+            traffic_light.current_state = "green"
 
         # Reset the timers when they reach zero
         if traffic_light.timer_cycle <= 0:
             traffic_light.timer_cycle = traffic_light.timer_red + traffic_light.timer_yellow + traffic_light.timer_green
+
 
     def render(self):
         self.screen.fill(self.white)
