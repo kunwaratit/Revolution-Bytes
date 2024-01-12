@@ -2,3 +2,4 @@ car
 motorbike
 truck
 bus
+w
