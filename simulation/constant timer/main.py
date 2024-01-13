@@ -8,7 +8,7 @@ from values import *
 pygame.init()
 width, height = 1000, 700
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("FlowSync_Timer")
+pygame.display.set_caption("Constant Timer")
 
 traffic_lights = TrafficLights(screen, width, height)
 

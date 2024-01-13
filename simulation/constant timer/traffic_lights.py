@@ -8,9 +8,9 @@ class TrafficLight:
         if is_rectangle_a:
             self.timer_red = Timer(initial_time=60)
             self.timer_yellow = Timer(initial_time=10)
-            self.timer_green = Timer(initial_time=30)
+            self.timer_green = Timer(initial_time=60)
         else:
-            self.timer_red = Timer(initial_time=30)
+            self.timer_red = Timer(initial_time=60)
             self.timer_yellow = Timer(initial_time=10)
             self.timer_green = Timer(initial_time=60)
 
