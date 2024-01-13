@@ -1,5 +1,4 @@
-### GoogleCollab:Detection,tracking and counting
-https://drive.google.com/drive/folders/1cNQomkh2X_zkhJhYbzZ2NIzqDRlDyIHB?usp=drive_link
+### GoogleCollab:Detection,tracking and counting https://drive.google.com/drive/folders/1cNQomkh2X_zkhJhYbzZ2NIzqDRlDyIHB?usp=drive_link
 
 
 # FlowSync - TrafficLight Optimization
