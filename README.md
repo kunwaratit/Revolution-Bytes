@@ -12,7 +12,9 @@ Implementing different types of algorithems to count the number of detected vehi
 
 We have designed simulation for the traffic light system with the help of Pygame for the proper visualization and simulation allowing the users to observe the difference in traffic flow before and after the implementation of our project.
 
+
 We have high expection that the current state of traffic problems can be solved in a certain amount with the help of our project. With the help of dynamic traffic light we are positive that it can save alot of time during our day to day hectic life.
 
 For the project we have used YOLOv8 model for the object detection and counting. We collected current data and labeled it with the help of labelimg, bytetracking and supervision for the detection and counting. 
+![image](https://github.com/kunwaratit/Revolution-Bytes/assets/89177301/2edf26dd-2d3b-4bed-9208-cad9adc93478)
 
