@@ -1,6 +1,7 @@
+# FlowSync - TrafficLight Optimization
 # Revolution-Bytes
 
-#FlowSync - TrafficLight Optimization
+
 
 FlowSync is an intelligent traffic light optimization system that is designed to improve traffic flow, using  dynamic timing algorithms and computer vision. In response to the current traffic density, the system dynamically modifies the timing of traffic lights after detecting and counting the number of detected vehicles.The project aims to reduce waiting times, improve traffic flow, and provide a data-driven approach for optimizing signal timings.
  
